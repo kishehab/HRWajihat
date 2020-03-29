@@ -1,0 +1,46 @@
+<mat-grid-list [cols]="grid_cols">
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <span>Application Layout Board</span>
+            <span class="example-spacer"></span>
+            <button (click)="addDefaultTile()" mat-button> Add Tile
+                <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">add</mat-icon>
+            </button>
+
+            <button (click)="clearAllTiles()" mat-button> Clear all
+                <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">delete</mat-icon>
+            </button>
+           
+            <mat-chip-list aria-label="Fish selection">
+                <mat-chip>{{tilesCount}}</mat-chip>
+              </mat-chip-list>
+          </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows"
+        [style.background]="tile.color" class="tile">
+        {{tile.id}}
+        <mat-grid-tile-footer color="primary">
+
+            <button mat-icon-button (click)="incrementCols(tile)">
+                <mat-icon>keyboard_arrow_right</mat-icon>
+              </button>
+
+              <button mat-icon-button (click)="decrementCols(tile)">
+                <mat-icon>keyboard_arrow_left</mat-icon>
+              </button>
+
+              <button mat-icon-button (click)="incrementRows(tile)">
+                <mat-icon>keyboard_arrow_down</mat-icon>
+              </button>
+
+              <button mat-icon-button (click)="decrementRows(tile)">
+                <mat-icon>keyboard_arrow_up</mat-icon>
+              </button>
+
+              <button mat-icon-button (click)="deleteTile(tile)">
+                <mat-icon>clear</mat-icon>
+              </button>
+
+        </mat-grid-tile-footer>
+    </mat-grid-tile>
+</mat-grid-list>

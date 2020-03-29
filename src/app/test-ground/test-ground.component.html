@@ -1,0 +1,122 @@
+<app-layout></app-layout>
+<mat-toolbar fxLayout="row" color="primary">
+<span class="applicatoin-title">eWajihat</span>
+</mat-toolbar>
+<div class="container" fxLayout.gm="row" fxFill fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutGap.xs="1.5%" fxLayoutAlign="center" fxLayoutAlign.xs="center">
+    <mat-card>
+        <mat-card-title>
+          card title
+        </mat-card-title>
+        <mat-card-content>
+          basic card
+        </mat-card-content>
+      </mat-card>
+      <mat-card >
+          <mat-card-title>
+            card title
+          </mat-card-title>
+          <mat-card-content>
+            basic card
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+            <mat-card-title>
+              card title
+            </mat-card-title>
+            <mat-card-content>
+              basic card
+            </mat-card-content>
+          </mat-card>
+</div>
+<!-- experimental code-->
+<mat-toolbar fxLayout="row" color="accent">
+  <span fxFlex="50%"class="applicatoin-title">Application Title</span>
+  <button fxFlex="30%" fxLayoutAlign="space-around stretch" mat-button [matMenuTriggerFor]="menu">Menu</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+  </mat-menu>
+  <span class="rat" fxFlex="20%">Right Aligned Text</span>
+</mat-toolbar>
+<h3>I'm in app compoenet!</h3>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile><mat-card>
+    <mat-card-title>
+      card title
+    </mat-card-title>
+    <mat-card-content>
+      basic card
+    </mat-card-content>
+  </mat-card>
+</mat-grid-tile>
+  <mat-grid-tile>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+        <span class="sr-only">60% Complete</span>
+      </div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile fxLayout ="column" fxLayoutWrap fxLayoutAlign="center">
+      <mat-selection-list fxFlex="80%" #shoes>
+          <mat-list-option *ngFor="let shoe of typesOfShoes">
+            {{shoe}}
+          </mat-list-option>
+        </mat-selection-list>
+        <div fxFlex="20%">
+          Options selected: {{shoes.selectedOptions.selected.length}}
+        </div>
+  </mat-grid-tile>
+  <mat-grid-tile>4</mat-grid-tile>
+</mat-grid-list>
+<button mat-raised-button>Hello World</button>
+
+
+
+<mat-form-field class="search-form">
+  <input matInput placeholder="Search Picture" type="text">
+</mat-form-field>
+<button button="submit" mat-raised-button color="primary">Search</button>
+<br>
+.con
+<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+  <mat-card class="card-picture" *ngFor="let picture of pictures">
+    <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+      <span fxFlex="80%">{{picture.title}}</span>
+      <mat-icon fxFlex="10%">mode_edit</mat-icon>
+      <mat-icon fxFlex="10%">delete</mat-icon>
+    </mat-card-title>
+    <img mat-card-image [src]="picture.img">
+  </mat-card>
+</div>
+<div>
+
+  <div layout="row">
+
+    <div flex="">First item in row</div>
+    <div flex="20">Second item in row</div>
+
+  </div>
+  <div layout="column">
+
+    <div flex="66">First item in column</div>
+    <div flex="33">Second item in column</div>
+
+  </div>
+
+</div>
+
+<div class="container" fxLayout="row" fxLayout.xs="row" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+  <div fxFlex="20%">
+    <img mat-card-image class="img" src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/8V46UZCS0V.jpg">
+  </div>
+  <div fxFlex="20%">
+    <img mat-card-image class="img" src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/LTLE4QGRVQ.jpg">
+  </div>
+  <div fxFlex="20%">
+    <img mat-card-image class="img" src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/R926LU1YEA.jpg">
+  </div>
+  <div fxFlex="20%">
+    <img mat-card-image class="img" src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/U9PP3KXXY2.jpg">
+  </div>
+</div>
+<router-outlet></router-outlet>

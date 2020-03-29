@@ -1,0 +1,50 @@
+<div class="flex-container">
+    <!-- Header row -->
+    <app-head></app-head>
+    
+    <!-- sidebar and board row -->
+    <div fxLayout="row" fxLayoutAlign="space-evenly none" style=" height: 100vh;">
+        <!-- sidebar tool -->
+        <div fxFlex="5">
+   <mat-toolbar color="accent" fxLayout="column" class="verticalToolbar" fxFill fxLayoutGap fxLayoutGap="30px"> 
+
+        <button mat-button (click)="openSidenav('table')"> 
+            <mat-icon>table</mat-icon>
+        </button>
+
+        <button mat-button (click)="openSidenav('pie chart')"> 
+            <mat-icon>pie_chart</mat-icon>
+        </button>
+
+        <button mat-button (click)="openSidenav('bar chart')"> 
+            <mat-icon>bar_chart</mat-icon>
+        </button>
+
+        <button mat-button (click)="openSidenav('button')"> 
+            <mat-icon>crop_16_9</mat-icon>
+        </button>
+        
+
+    </mat-toolbar>
+        </div>
+        <mat-sidenav-container>
+            <mat-sidenav [(opened)]="opened" mode="side">
+               <h3>{{sideNavTitle}}</h3> 
+               <mat-list>
+                <mat-list-item>Item 1</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>Item 2</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>Item 3</mat-list-item>
+              </mat-list>
+            </mat-sidenav>
+            <mat-sidenav-content>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+        <!-- board  -->
+        
+        <div fxFlex="95" fxLayoutGap="10px">
+            <app-board (addTileEvent)="numberOfTiles=$event" [prntMsg]="fatherMsg" [isRequested]="isRequested"></app-board>
+        </div>
+    </div>
+</div>

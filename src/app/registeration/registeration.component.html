@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Registeration</h1>
+            <mat-divider></mat-divider>
+            <form #lr_ngForm="ngForm" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+                <div formGroupName="login">
+                    <h3>Login</h3>
+                    <mat-form-field>
+                        <input matInput placeholder="User name" id="username" formControlName="username" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Password" type="password" id="password" formControlName="password"
+                            required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Retype password" type="password" id="rtpassword"
+                            formControlName="rtpassword" required>
+                    </mat-form-field>
+
+                </div>
+                <h3>Personal</h3>
+                <mat-form-field>
+                    <input matInput placeholder="First name" id="firstName" formControlName="firstName" required>
+                    <!-- <div *ngIf="profileForm.firstName.errors.minlength">
+                        Name must be at least 4 characters long.
+                    </div>  -->
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="First name" formControlName="lastName" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Email" formControlName="email" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Mobile" type="tel" formControlName="mobile" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Date of birth" formControlName="DOB" required>
+                </mat-form-field>
+                <div formGroupName="address">
+                    <h3>Address</h3>
+                    <mat-form-field>
+                        <input matInput placeholder="First name" formControlName="street" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="First name" formControlName="city" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="First name" formControlName="state" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="First name" formControlName="zip" required>
+                    </mat-form-field>
+                </div>
+                <button mat-button color="primary" type="submit" [disabled]="!profileForm.valid">Submit</button>
+            </form>
+            <p>
+                {{lr_ngForm.value | json}}
+                Form Status: {{ profileForm.status }}
+                {{profileForm.controls}}
+            </p>
+        </div>
+    </div>
+</div>

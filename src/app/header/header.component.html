@@ -1,0 +1,41 @@
+<mat-toolbar fxLayout="row">
+    <button fxFlex.xs="10%" mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+
+ 
+  <div class="linerMenu" fxFlex="80%" fxHide.xs >
+      <section class="color-4">
+          <nav class="cl-effect-4">
+            <a href="#" data-hover="Languor">Languor</a>
+            <a href="#" data-hover="Murmurous">Murmurous</a>
+            <a href="#" data-hover="Lassitude">Lassitude</a>
+            <a href="#" data-hover="Chatoyant">Chatoyant</a>
+            <a href="#" data-hover="Palimpsest">Palimpsest</a>
+          </nav>
+        </section>
+    </div>
+  <!-- <span class="applicatoin-title" routerLink="/">wajihat</span> -->
+  <button fxFlex.xs="10%" mat-icon-button fxHide.gt-xs (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <img class="logo" src="./assets/images/wajihat_logo_with_Ar_H.svg" routerLink="/" fxFlex="10%" fxFlex.xs="80%">
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/profile">
+      <mat-icon>person</mat-icon>
+      <span>Profile</span>
+    </button>
+    <button mat-menu-item routerLink="/settings">
+      <mat-icon>settings</mat-icon>
+      <span>Settings</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>notifications</mat-icon>
+      <span>Notifications</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
