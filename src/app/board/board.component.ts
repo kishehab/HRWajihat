@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { ClearAllDialogComponent } from '../clear-all-dialog/clear-all-dialog.component';
+import { TileServiceService } from '../tile-service.service';
 
 export interface Tile {
   id: number;
@@ -35,7 +36,7 @@ export class BoardComponent implements OnInit {
 
  
 
-  constructor( public dialog : MatDialog) { 
+  constructor( public dialog : MatDialog, private _TileServiceService : TileServiceService) { 
 
   }
 
@@ -43,6 +44,9 @@ export class BoardComponent implements OnInit {
 
     // inistanite tile manager 
     //this.INITIATE_TILES_MANAGER();
+    var nums = this._TileServiceService.getNumber();
+    console.log(nums);
+    
   }
 
   INITIATE_TILES_MANAGER(){

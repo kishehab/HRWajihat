@@ -28,6 +28,12 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { HeadComponent } from './head/head.component';
 import { BoardComponent } from './board/board.component';
 import { ClearAllDialogComponent } from './clear-all-dialog/clear-all-dialog.component';
+import { TileServiceService } from './tile-service.service';
+import { ButtonWidgetComponent } from './button-widget/button-widget.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { SideNavigationComponent } from './side-navigation/side-navigation.component';
+import { ToolbarServiceService } from './toolbar-service.service';
+
 
 
 
@@ -45,6 +51,9 @@ import { ClearAllDialogComponent } from './clear-all-dialog/clear-all-dialog.com
     HeadComponent,
     BoardComponent,
     ClearAllDialogComponent,
+    ButtonWidgetComponent,
+    ToolbarComponent,
+    SideNavigationComponent,
   ],
   entryComponents: [ClearAllDialogComponent],
   imports: [
@@ -66,7 +75,7 @@ import { ClearAllDialogComponent } from './clear-all-dialog/clear-all-dialog.com
     MatDialogModule,
     MatTabsModule
   ],
-  providers: [],
+  providers: [TileServiceService, ToolbarServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

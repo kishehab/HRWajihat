@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./test-ground.component.css']
 })
 export class TestGroundComponent implements OnInit {
-
+  public typesOfShoes: any;
+  public pictures : any;
   constructor() { }
 
   ngOnInit() {

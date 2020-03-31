@@ -1,0 +1,23 @@
+<button mat-button (click)="EmitClickEvent(widgetTemplateRef)">
+  <mat-icon>crop_7_5</mat-icon>
+</button>
+
+<ng-template #widgetTemplateRef>
+  <div fxLayout="row">
+
+    <h3>{{widgetTitle}}</h3>
+    <span class="spacer"></span>
+    <button mat-button (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
+
+  </div>
+
+  <mat-list>
+    <mat-list-item>Item 1</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Item 2</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Item 3</mat-list-item>
+  </mat-list>
+</ng-template>

@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ViewContainerRef } from '@angular/core';
+import { TileServiceService } from '../tile-service.service';
 
 
 @Component({
@@ -15,10 +16,13 @@ export class LayoutGridComponent implements OnInit {
 
   public isRequested : boolean = false;
 
-  constructor() { }
+
+  constructor( private _TileServiceService : TileServiceService) {
+
+   }
   
   ngOnInit() {
-    
+
   }
 
   requestBoardToAddTile (){

@@ -3,16 +3,6 @@ mat-grid-tile {
     background: lightblue;
   }
 
-mat-sidenav-container {
-	height: 100%;
-
-}
-
-mat-sidenav{
-	width: 400px;
-	padding: 16px;
-}
-
 .verticalToolbar {
  padding-top: 70px;
 }
