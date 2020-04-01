@@ -88,7 +88,7 @@ export class BoardComponent implements OnInit {
       // get the current value of cols
       currentCols = this.tiles[index].cols;
       // check if the current value does not equal to zero
-      if(currentCols > 0){
+      if(currentCols > 1){
         // incrment by 1
         this.tiles[index].cols = currentCols - 1;
         // if no indext is found 

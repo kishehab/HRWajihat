@@ -1,4 +1,4 @@
-<button mat-button (click)="EmitClickEvent(widgetTemplateRef)">
+<button mat-icon-button (click)="EmitClickEvent(widgetTemplateRef)">
   <mat-icon>crop_7_5</mat-icon>
 </button>
 
@@ -7,17 +7,82 @@
 
     <h3>{{widgetTitle}}</h3>
     <span class="spacer"></span>
-    <button mat-button (click)="close()">
+    <button mat-icon-button (click)="close()">
       <mat-icon>close</mat-icon>
     </button>
 
   </div>
 
   <mat-list>
-    <mat-list-item>Item 1</mat-list-item>
+    <mat-list-item>Button Type</mat-list-item>
+
+    <section class="example-section">
+      <mat-radio-group [(ngModel)]="buttonType">
+        <mat-radio-button class="example-margin" value="basic">
+          Basic
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="raised">
+          Raised
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="stroked">
+          Stroked
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="flat">
+          Flat
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="icon">
+          Icon
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="fab">
+          Fab
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="mini-fab">
+          Mini Fab
+        </mat-radio-button>
+      </mat-radio-group>
+    </section>
+
     <mat-divider></mat-divider>
-    <mat-list-item>Item 2</mat-list-item>
+    <mat-list-item>Color</mat-list-item>
+    <section class="example-section">
+      <mat-radio-group [(ngModel)]="color">
+        <mat-radio-button class="example-margin" value="primary">
+          Primary
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="accent">
+          Accent
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="warn">
+          Warn
+        </mat-radio-button>
+      </mat-radio-group>
+    </section>
+
     <mat-divider></mat-divider>
-    <mat-list-item>Item 3</mat-list-item>
+    <mat-list-item>Disable</mat-list-item>
+
+    
+    <section class="example-section">
+      <mat-checkbox class="example-margin" [(ngModel)]="disabled">Disabled</mat-checkbox>
+    </section>
+
+    <mat-divider></mat-divider>
+    <mat-list-item>Result</mat-list-item>
+
+    <mat-card class="result">
+      <div cdkDropList (cdkDropListDropped)="drop($event)">
+      <mat-card-content [ngSwitch]="buttonType">
+        <button *ngSwitchCase="'basic'" mat-button [color]="color" [disabled]="disabled" cdkDrag>Basic</button>
+        <button *ngSwitchCase="'raised'" mat-raised-button [color]="color" [disabled]="disabled" cdkDrag>Raised</button>
+        <button *ngSwitchCase="'stroked'" mat-stroked-button [color]="color" [disabled]="disabled" cdkDrag>Stroked</button>
+        <button *ngSwitchCase="'flat'" mat-flat-button [color]="color" [disabled]="disabled" cdkDrag> cdkDrag Flat</button>
+        <button *ngSwitchCase="'icon'" mat-icon-button [color]="color" [disabled]="disabled" cdkDrag>
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <button *ngSwitchCase="'fab'" mat-fab [color]="color" [disabled]="disabled" cdkDrag>Fab</button>
+        <button *ngSwitchCase="'mini-fab'" mat-mini-fab [color]="color" [disabled]="disabled" cdkDrag>MF</button>
+      </mat-card-content>
+    </div>
+    </mat-card>
   </mat-list>
 </ng-template>

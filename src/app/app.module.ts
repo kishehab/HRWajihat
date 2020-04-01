@@ -18,7 +18,9 @@ import {
           MatIconModule,
           MatChipsModule,
           MatDialogModule,
-          MatTabsModule
+          MatTabsModule,
+          MatSlideToggleModule,
+          MatRadioModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
@@ -33,6 +35,7 @@ import { ButtonWidgetComponent } from './button-widget/button-widget.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SideNavigationComponent } from './side-navigation/side-navigation.component';
 import { ToolbarServiceService } from './toolbar-service.service';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 
@@ -73,7 +76,11 @@ import { ToolbarServiceService } from './toolbar-service.service';
     MatIconModule,
     MatChipsModule,
     MatDialogModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSlideToggleModule,
+    MatRadioModule,
+    DragDropModule
+    
   ],
   providers: [TileServiceService, ToolbarServiceService],
   bootstrap: [AppComponent]

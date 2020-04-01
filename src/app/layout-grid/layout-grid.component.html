@@ -6,7 +6,7 @@
     <div fxLayout="row" fxLayoutAlign="space-evenly none" style=" height: 100vh;">
         
         <!-- toolbar -->
-        <div fxFlex="5">
+        <div fxFlex="5" fxFlex.xs="15">
            <app-toolbar> </app-toolbar>
         </div>
 
@@ -14,7 +14,7 @@
         <app-side-navigation></app-side-navigation>
         
         <!-- board  -->
-        <div fxFlex="95" fxLayoutGap="10px">
+        <div fxFlex="95" fxLayoutGap="10px" fxFlex.xs="85">
             <app-board (addTileEvent)="numberOfTiles=$event" [prntMsg]="fatherMsg" [isRequested]="isRequested"></app-board>
         </div>
     </div>

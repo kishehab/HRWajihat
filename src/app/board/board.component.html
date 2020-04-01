@@ -1,17 +1,27 @@
 <mat-grid-list [cols]="grid_cols">
     <mat-toolbar color="primary">
         <mat-toolbar-row>
-            <span>Application Layout Board</span>
+            <span fxHide.xs>Application Layout Board</span>
+            <span fxHide.gt-xs>Layout</span>
             <span class="example-spacer"></span>
-            <button (click)="addDefaultTile()" mat-button> Add Tile
-                <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">add</mat-icon>
+
+            <button (click)="addDefaultTile()" mat-button fxHide.xs>Add Tile
+                <mat-icon class="example-icon" aria-hidden="true" aria-label="Example heart icon">add</mat-icon>
             </button>
 
-            <button (click)="clearAllTiles()" mat-button> Clear all
+            <button (click)="clearAllTiles()" mat-button fxHide.xs> Clear all
                 <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">delete</mat-icon>
             </button>
+
+            <button mat-icon-button (click)="addDefaultTile()" fxHide.gt-xs>
+              <mat-icon>add</mat-icon>
+            </button>
+
+            <button mat-icon-button (click)="clearAllTiles()" fxHide.gt-xs>
+              <mat-icon>delete</mat-icon>
+            </button>
            
-            <mat-chip-list aria-label="Fish selection">
+            <mat-chip-list aria-label="Fish selection" fxHide.xs>
                 <mat-chip>{{tilesCount}}</mat-chip>
               </mat-chip-list>
           </mat-toolbar-row>
