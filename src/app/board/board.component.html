@@ -26,9 +26,22 @@
               </mat-chip-list>
           </mat-toolbar-row>
     </mat-toolbar>
+
     <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows"
         [style.background]="tile.color" class="tile">
-        {{tile.id}}
+        <!-- <div class="example-container">
+          <h2>Done</h2>
+        
+          <div
+            cdkDropList
+            [id]=this._DragDropServiceService.generateID()
+            [cdkDropListData]=[]
+            [cdkDropListConnectedTo]=this._DragDropServiceService.drapDragList
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+          </div>
+        </div> -->
         <mat-grid-tile-footer color="primary">
 
             <button mat-icon-button (click)="incrementCols(tile)">

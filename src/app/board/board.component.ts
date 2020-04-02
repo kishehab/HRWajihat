@@ -2,6 +2,8 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { ClearAllDialogComponent } from '../clear-all-dialog/clear-all-dialog.component';
 import { TileServiceService } from '../tile-service.service';
+import { CdkDragDrop, transferArrayItem, moveItemInArray } from '@angular/cdk/drag-drop';
+import { DragDropServiceService } from '../drag-drop-service.service';
 
 export interface Tile {
   id: number;
@@ -9,6 +11,7 @@ export interface Tile {
   rows: number;
   text: string;
   color: string;
+  dndListID: string;
 }
 @Component({
   selector: 'app-board',
@@ -20,7 +23,7 @@ export class BoardComponent implements OnInit {
   public id_generator =  0;
   public grid_cols = 12;
   public defualt_cols_size = 6;
-  public defualt_rows_size = 2;
+  public defualt_rows_size = 3;
   public defualt_color = "white";
   public tilesCount = 0;
 
@@ -36,7 +39,7 @@ export class BoardComponent implements OnInit {
 
  
 
-  constructor( public dialog : MatDialog, private _TileServiceService : TileServiceService) { 
+  constructor( public dialog : MatDialog, private _TileServiceService : TileServiceService, private _DragDropServiceService: DragDropServiceService) { 
 
   }
 
@@ -47,6 +50,18 @@ export class BoardComponent implements OnInit {
     var nums = this._TileServiceService.getNumber();
     console.log(nums);
     
+  }
+
+  done = [
+    'Get up',
+    'Brush teeth',
+    'Take a shower',
+    'Check e-mail',
+    'Walk dog'
+  ];
+
+  drop(event: CdkDragDrop<string[]>) {
+    this._DragDropServiceService.drop(event);
   }
 
   INITIATE_TILES_MANAGER(){
@@ -149,7 +164,8 @@ export class BoardComponent implements OnInit {
       cols: this.defualt_cols_size, 
       rows:this.defualt_rows_size, 
       text:'Drag you component here!', 
-      color: this.defualt_color
+      color: this.defualt_color,
+      dndListID: "c"
     });
     
     // increment the tileCount
@@ -157,6 +173,7 @@ export class BoardComponent implements OnInit {
     
     // emit count to parent
     this.addTileEvent.emit(this.tiles.length)
+
   }
 
   addTile(cols : number, rows : number, text : string, color : string){
@@ -165,7 +182,8 @@ export class BoardComponent implements OnInit {
       cols: cols, 
       rows:rows, 
       text: text, 
-      color: color
+      color: color,
+      dndListID: "0"
     });
 
     // increment the tileCount

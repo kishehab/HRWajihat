@@ -1,7 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, TemplateRef } from '@angular/core';
 import { ToolbarServiceService } from '../toolbar-service.service';
 import { ThemePalette } from '@angular/material';
-import { CdkDragDrop } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { DragDropServiceService } from '../drag-drop-service.service';
 
 @Component({
   selector: 'app-button-widget',
@@ -17,10 +18,26 @@ export class ButtonWidgetComponent implements OnInit {
   color: ThemePalette = 'primary';
   checked = false;
   disabled = false;
+  public buttonText= "Text";
 
   public buttonType = "basic";
 
-  constructor(private _ToolbarServiceService : ToolbarServiceService) { 
+  todo = [
+    'Get to work',
+    'Pick up groceries',
+    'Go home',
+    'Fall asleep'
+  ];
+
+  done = [
+    'Get up',
+    'Brush teeth',
+    'Take a shower',
+    'Check e-mail',
+    'Walk dog'
+  ];
+
+  constructor(private _ToolbarServiceService : ToolbarServiceService, private _DragDropServiceService: DragDropServiceService) { 
 
   }
 
@@ -38,10 +55,9 @@ export class ButtonWidgetComponent implements OnInit {
     this._ToolbarServiceService.close();
   }
 
-  drop(event : CdkDragDrop< number[]>){
-    alert("dropped!");
-    console.log("dropped!");
-    
+  drop(event: CdkDragDrop<string[]>) {
+    this._DragDropServiceService.drop(event);
+
   }
 
 }

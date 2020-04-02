@@ -12,6 +12,7 @@ export class SideNavigationComponent implements OnInit {
   // local variables to refer to sidenav and its content
   @ViewChild('panel', { static: true }) private sidePanel: MatSidenav;
   @ViewChild('content', { static: true, read: ViewContainerRef }) private vcf: ViewContainerRef;
+  public innerWidth: any;
 
 
   constructor(private _ToolbarServiceService : ToolbarServiceService) { }
@@ -21,6 +22,8 @@ export class SideNavigationComponent implements OnInit {
     // register sidenav to the service.
     this._ToolbarServiceService.setPanel(this.sidePanel);
     this._ToolbarServiceService.setContentVcf(this.vcf);
+
+    this.innerWidth = window.innerWidth/2;
 
   }
   

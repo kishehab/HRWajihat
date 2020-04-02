@@ -36,6 +36,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SideNavigationComponent } from './side-navigation/side-navigation.component';
 import { ToolbarServiceService } from './toolbar-service.service';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DragDropServiceService } from './drag-drop-service.service';
 
 
 
@@ -82,7 +83,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     DragDropModule
     
   ],
-  providers: [TileServiceService, ToolbarServiceService],
+  providers: [TileServiceService, ToolbarServiceService, DragDropServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
